@@ -180,6 +180,7 @@ EMAIL_FILE_PATH = "tmp/email-messages/"
 AUTHENTICATION_BACKENDS = (
     "django.contrib.auth.backends.ModelBackend",
     "social_core.backends.github.GithubOAuth2",
+    "social_core.backends.google.GoogleOAuth2",
 )
 
 import json
@@ -191,3 +192,5 @@ with open(
 
 SOCIAL_AUTH_GITHUB_KEY = github_auth["client_id"]
 SOCIAL_AUTH_GITHUB_SECRET = github_auth["client_secret"]
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '319458461611-e2dphosa6fu6fta2m8k2ghd2laf0atb2.apps.googleusercontent.com' # Google Consumer Key
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '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' # Google Consumer Secret
