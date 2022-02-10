@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     "basketapp",
     "adminapp",
     "social_django",
+    "ordersapp",
 ]
 
 
@@ -77,6 +78,7 @@ TEMPLATES = [
                 "mainapp.context_processors.basket",
                 "social_django.context_processors.backends",
                 "social_django.context_processors.login_redirect",
+                "django.template.context_processors.media",
             ],
         },
     },
@@ -183,14 +185,7 @@ AUTHENTICATION_BACKENDS = (
     "social_core.backends.google.GoogleOAuth2",
 )
 
-import json
-
-with open(
-    os.path.join(BASE_DIR, "tmp", "secrets", "github.json"), "r"
-) as secrets:
-    github_auth = json.load(secrets)
-
-SOCIAL_AUTH_GITHUB_KEY = github_auth["client_id"]
-SOCIAL_AUTH_GITHUB_SECRET = github_auth["client_secret"]
+SOCIAL_AUTH_GITHUB_KEY = "3fceb5a570367fbb3e02"
+SOCIAL_AUTH_GITHUB_SECRET = "ed578ec9cf8c42fe72a95383acfa7f6a9b2e0f3f"
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '319458461611-e2dphosa6fu6fta2m8k2ghd2laf0atb2.apps.googleusercontent.com' # Google Consumer Key
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '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' # Google Consumer Secret
