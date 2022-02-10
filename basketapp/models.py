@@ -34,15 +34,6 @@ class Basket(models.Model):
     def get_items(user):
         return Basket.objects.filter(user=user).order_by("product__category")
 
-    def save(self, *args, **kwargs):
-        if self.pk:
-            self.product.quantity -= self.quantity - self.__class__.get_item(self.pk).quantity
-        else:
-            self.product.quantity -= self.quantity
-        self.product.save()
-        super(self.__class__, self).save(*args, **kwargs)
-
-    def delete(self):
-        self.product.quantity += self.quantity
-        self.product.save()
-        super(self.__class__, self).delete()
+    @staticmethod
+    def get_item(pk):
+        return get_object_or_404(Basket, pk=pk)
