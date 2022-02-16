@@ -102,7 +102,7 @@ if DEBUG:
 else:
     DATABASES = {
         "default": {
-            "NAME": "geekshop",
+            "NAME": "django",
             "ENGINE": "django.db.backends.postgresql",
             "USER": "django",
             "PASSWORD": "geekbrains",
