@@ -223,11 +223,6 @@ if DEBUG:
 
 
 if DEBUG:
-    MIDDLEWARE.extend([
-        "debug_toolbar.middleware.DebugToolbarMiddleware",
-    ])
-
-if DEBUG:
 
     def show_toolbar(request):
         return True
