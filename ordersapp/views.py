@@ -1,3 +1,4 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db import transaction
 from django.db.models.signals import pre_delete, pre_save
 from django.dispatch import receiver
@@ -11,7 +12,6 @@ from basketapp.models import Basket
 from ordersapp.forms import OrderItemForm
 from ordersapp.models import Order, OrderItem
 
-from django.contrib.auth.mixins import LoginRequiredMixin
 
 class OrderList(LoginRequiredMixin, ListView):
     model = Order
@@ -32,7 +32,7 @@ class OrderItemsCreate(CreateView):
         if self.request.POST:
             formset = OrderFormSet(self.request.POST)
         else:
-            basket_items = Basket.get_items(self.request.user)
+            basket_items = self.request.user.basket.select_related().order_by("product__category")
             if len(basket_items):
                 OrderFormSet = inlineformset_factory(Order, OrderItem, form=OrderItemForm, extra=len(basket_items))
                 formset = OrderFormSet()
@@ -142,9 +142,12 @@ def product_quantity_update_save(instance, sender, **kwargs):
 def product_quantity_update_delete(instance, **kwargs):
     instance.product.quantity += instance.quantity
     instance.product.save()
-    
-from mainapp.models import Product
+
+
 from django.http import JsonResponse
+
+from mainapp.models import Product
+
 
 def get_product_price(request, pk):
     if request.is_ajax():
