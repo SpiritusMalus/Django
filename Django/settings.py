@@ -214,40 +214,51 @@ SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '319458461611-e2dphosa6fu6fta2m8k2ghd2laf0atb2.a
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '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' # Google Consumer Secret
 
 # Django Debug Toolbar --->
-if DEBUG:
-    INSTALLED_APPS.extend([
-        "debug_toolbar",
-        "template_profiler_panel",
-        "django_extensions",
-    ])
+# if DEBUG:
+#     INSTALLED_APPS.extend(
+#         [
+#             "debug_toolbar",
+#             "template_profiler_panel",
+#             "django_extensions",
+#         ]
+#     )
 
 
-if DEBUG:
+# if DEBUG:
+#     MIDDLEWARE.extend(
+#         [
+#             "debug_toolbar.middleware.DebugToolbarMiddleware",
+#         ]
+#     )
 
-    def show_toolbar(request):
-        return True
+# # Debgu tool bar settings
+# if DEBUG:
 
-    DEBUG_TOOLBAR_CONFIG = {
-        "SHOW_TOOLBAR_CALLBACK": show_toolbar,
-    }
+#     def show_toolbar(request):
+#         return True
 
-    DEBUG_TOOLBAR_PANELS = [
-        # "ddt_request_history.panels.request_history.RequestHistoryPanel",
-        "debug_toolbar.panels.versions.VersionsPanel",
-        "debug_toolbar.panels.timer.TimerPanel",
-        "debug_toolbar.panels.settings.SettingsPanel",
-        "debug_toolbar.panels.headers.HeadersPanel",
-        "debug_toolbar.panels.request.RequestPanel",
-        "debug_toolbar.panels.sql.SQLPanel",
-        "debug_toolbar.panels.templates.TemplatesPanel",
-        "debug_toolbar.panels.staticfiles.StaticFilesPanel",
-        "debug_toolbar.panels.cache.CachePanel",
-        "debug_toolbar.panels.signals.SignalsPanel",
-        "debug_toolbar.panels.logging.LoggingPanel",
-        "debug_toolbar.panels.redirects.RedirectsPanel",
-        "debug_toolbar.panels.profiling.ProfilingPanel",
-        "template_profiler_panel.panels.template.TemplateProfilerPanel",
-    ]
+#     DEBUG_TOOLBAR_CONFIG = {
+#         "SHOW_TOOLBAR_CALLBACK": show_toolbar,
+#     }
+
+#     DEBUG_TOOLBAR_PANELS = [
+#         # "ddt_request_history.panels.request_history.RequestHistoryPanel",
+#         "debug_toolbar.panels.versions.VersionsPanel",
+#         "debug_toolbar.panels.timer.TimerPanel",
+#         "debug_toolbar.panels.settings.SettingsPanel",
+#         "debug_toolbar.panels.headers.HeadersPanel",
+#         "debug_toolbar.panels.request.RequestPanel",
+#         "debug_toolbar.panels.sql.SQLPanel",
+#         "debug_toolbar.panels.templates.TemplatesPanel",
+#         "debug_toolbar.panels.staticfiles.StaticFilesPanel",
+#         "debug_toolbar.panels.cache.CachePanel",
+#         "debug_toolbar.panels.signals.SignalsPanel",
+#         "debug_toolbar.panels.logging.LoggingPanel",
+#         "debug_toolbar.panels.redirects.RedirectsPanel",
+#         "debug_toolbar.panels.profiling.ProfilingPanel",
+#         "template_profiler_panel.panels.template.TemplateProfilerPanel",
+#     ]
+# <--- Django Debug Toolbar
 CACHE_MIDDLEWARE_ALIAS = "default"
 CACHE_MIDDLEWARE_SECONDS = 120
 CACHE_MIDDLEWARE_KEY_PREFIX = "geekbrains"
