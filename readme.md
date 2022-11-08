@@ -5,7 +5,7 @@
 
 * `Python` > 3.5
 * `Django` < 3.0
-* `Pycharm`
+* `VSCODE`
 * `SQLite3`
 
 ## Лицензия
